@@ -4,8 +4,11 @@ compiler:
     - gcc
 
 before_install:
-    - sudo apt-get install --yes --force-yes python3-pip 
+    - sudo apt-get update
+    - sudo apt-get -qq install gcc-5 g++-5 libstdc++-5-dev libcppunit-dev python3.4 python3-pip unzip
     - pip3 install meson
+
+install:
     - wget https://github.com/ninja-build/ninja/releases/download/v1.7.2/ninja-linux.zip
     - unzip ninja-linux.zip -d ${HOME}/.local/bin
 
