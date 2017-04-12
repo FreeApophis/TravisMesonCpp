@@ -7,8 +7,6 @@ compiler:
     - clang
     
 before_install:
-    - sudo apt-get update
-    - sudo apt-get -qq install gcc-5 g++-5 libstdc++-5-dev libcppunit-dev python3.4 python3-pip unzip
     - pip3 install meson
 
 install:
