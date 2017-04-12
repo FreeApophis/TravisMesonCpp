@@ -1,0 +1,19 @@
+language: c
+
+compiler:
+    - gcc
+    - gcc
+
+before_install:
+    - sudo apt-get install --yes --force-yes python3-pip 
+    - pip3 install meson
+    - wget https://github.com/ninja-build/ninja/releases/download/v1.6.0/ninja-linux.zip
+    - unzip ninja-linux.zip -d ${HOME}/.local/bin
+
+before_script:
+    - mkdir build
+    - meson . build
+
+script:
+    - mesontest -C build 
+    - DESTDIR=$(mktemp -d) ninja -C build -v install
