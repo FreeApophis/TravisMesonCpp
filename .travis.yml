@@ -16,12 +16,9 @@ install:
 
 before_script:
     - mkdir build
-    - cd build
-    - meson build
 
 script:
     - export PATH="$HOME/.local/bin:$PATH"
-    - mkdir build
     - meson build
     - ninja -C "build"
     - ninja -C "build" test
